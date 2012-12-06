@@ -1,0 +1,39 @@
+# This Makefile contains rules to build files in the shell/ directory.
+
+# Name of this component (the directory this file is stored in)
+COMP = shell
+
+# Source files for this component
+C_FILES = shell.c lexan.c addargs.c
+
+# Shell commands
+C_FILES +=	xsh_argecho.c				\
+		xsh_arp.c				\
+		xsh_cat.c				\
+		xsh_clear.c				\
+		xsh_date.c				\
+		xsh_devdump.c				\
+		xsh_echo.c				\
+		xsh_ethstat.c				\
+		xsh_exit.c				\
+		xsh_help.c				\
+		xsh_ipaddr.c				\
+		xsh_kill.c				\
+		xsh_led.c				\
+		xsh_memdump.c				\
+		xsh_memstat.c				\
+		xsh_nvram.c				\
+		xsh_ping.c				\
+		xsh_ps.c				\
+		xsh_rdstest.c				\
+		xsh_sleep.c				\
+		xsh_udpdump.c				\
+		xsh_udpecho.c				\
+		xsh_udpeserver.c			\
+		xsh_uptime.c
+
+
+# Add the files to the compile source path
+
+DIR = ${TOPDIR}/${COMP}
+COMP_SRC += ${S_FILES:%=${DIR}/%} ${C_FILES:%=${DIR}/%}

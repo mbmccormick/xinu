@@ -1,0 +1,56 @@
+# This Makefile contains rules to build files in the system/ directory.
+
+# Name of this component (the directory this file is stored in)
+COMP = system
+
+# Source files for this component
+
+# Important system components - start must come first.
+S_FILES = start.S flushcache.S pause.S
+C_FILES = initialize.c queue.c
+
+# Configuration file
+C_FILES += conf.c
+
+# Files for process control
+S_FILES += ctxsw.S
+C_FILES += create.c kill.c ready.c resched.c resume.c suspend.c		\
+		chprio.c getprio.c queue.c getitem.c newqueue.c		\
+		insert.c getpid.c xdone.c yield.c userret.c
+
+# Files for preemption
+S_FILES += clkupdate.S intutils.S intdispatch.S halt.S
+C_FILES += dispatch.c exception.c sched_cntl.c clkinit.c clkhandler.c	\
+		insertd.c sleep.c unsleep.c wakeup.c
+
+# Files for semaphores
+C_FILES += semcreate.c semdelete.c semcount.c signal.c signaln.c wait.c	\
+		semreset.c
+
+# Files for memory management
+C_FILES += getmem.c freemem.c getstk.c bufinit.c mkbufpool.c getbuf.c	\
+		freebuf.c
+
+# Files for interprocess communication
+C_FILES += send.c receive.c recvclr.c recvtime.c
+
+# Files for device drivers
+C_FILES += close.c control.c getc.c open.c ioerr.c init.c ionull.c	\
+		read.c putc.c seek.c write.c getdev.c
+
+# Files for system debugging
+C_FILES += kprintf.c debug.c
+
+# Files for time and date manipulation
+C_FILES += ascdate.c gettime.c getutime.c
+
+# Files for message passing ports
+C_FILES += ptclear.c ptcreate.c ptdelete.c ptinit.c ptrecv.c		\
+		ptreset.c ptsend.c ptcount.c
+
+# Main program
+C_FILES += main.c
+
+# Add the files to the compile source path
+DIR = ${TOPDIR}/${COMP}
+COMP_SRC += ${S_FILES:%=${DIR}/%} ${C_FILES:%=${DIR}/%}

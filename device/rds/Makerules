@@ -1,0 +1,13 @@
+# This Makefile contains rules to build files in the device/rds/ directory.
+
+# Name of this component (the directory this file is stored in)
+COMP = device/rds
+
+# Source files for this component
+C_FILES = rdsInit.c rdsOpen.c rdsClose.c rdsRead.c rdsWrite.c	\
+	rdsControl.c rdsbufalloc.c rdscomm.c rdsprocess.c
+S_FILES =
+
+# Add the files to the compile source path
+DIR = ${TOPDIR}/${COMP}
+COMP_SRC += ${S_FILES:%=${DIR}/%} ${C_FILES:%=${DIR}/%}

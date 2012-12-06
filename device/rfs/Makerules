@@ -1,0 +1,14 @@
+# This Makefile contains rules to build files in the device/rfs/ directory.
+
+# Name of this component (the directory this file is stored in)
+COMP = device/rfs
+
+# Source files for this component
+C_FILES = rflClose.c rflGetc.c rflInit.c rflPutc.c rflRead.c	\
+	  rflSeek.c rflWrite.c dot2ip.c rfsgetmode.c rfsndmsg.c	\
+	 rfsControl.c rfsInit.c rfsOpen.c rfscomm.c panic.c
+S_FILES =
+
+# Add the files to the compile source path
+DIR = ${TOPDIR}/${COMP}
+COMP_SRC += ${S_FILES:%=${DIR}/%} ${C_FILES:%=${DIR}/%}

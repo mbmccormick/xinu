@@ -1,0 +1,13 @@
+# This Makefile contains rules to build files in the device/ram directory.
+
+# Name of this component (the directory this file is stored in)
+COMP = device/ram
+
+# Source files for this component
+C_FILES = ramClose.c ramInit.c ramRead.c ramWrite.c ramOpen.c
+
+S_FILES =
+
+# Add the files to the compile source path
+DIR = ${TOPDIR}/${COMP}
+COMP_SRC += ${S_FILES:%=${DIR}/%} ${C_FILES:%=${DIR}/%}

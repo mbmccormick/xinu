@@ -1,0 +1,18 @@
+# This Makefile contains rules to build files in the device/lfs directory.
+
+# Name of this component (the directory this file is stored in)
+COMP = device/lfs
+
+# Source files for this component
+C_FILES =	lfibclear.c lfibget.c lfibput.c				\
+		lfdballoc.c lfflush.c lfgetmode.c			\
+		lfiballoc.c lflClose.c lflGetc.c lflInit.c lflPutc.c	\
+		lflRead.c lflSeek.c lflWrite.c lfsInit.c lfsOpen.c	\
+		lflControl.c lfsetup.c lftruncate.c lfdbfree.c		\
+		lfscreate.c lfsckfmt.c
+
+S_FILES =
+
+# Add the files to the compile source path
+DIR = ${TOPDIR}/${COMP}
+COMP_SRC += ${S_FILES:%=${DIR}/%} ${C_FILES:%=${DIR}/%}

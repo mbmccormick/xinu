@@ -1,0 +1,12 @@
+# This Makefile contains rules to build the files in the
+#    netstuff directory -- quick and dirty UDP networking
+
+# Name of this component (the directory this file is stored in)
+COMP = net
+
+# Source files for this component
+C_FILES = arp.c  dhcp.c  netin.c  udp.c pdump.c icmp.c ipdump.c
+
+# Add the files to the compile source path
+DIR = ${TOPDIR}/${COMP}
+COMP_SRC += ${S_FILES:%=${DIR}/%} ${C_FILES:%=${DIR}/%}

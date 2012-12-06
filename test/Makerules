@@ -1,0 +1,14 @@
+# This Makefile contains rules to build the files in the
+#    netstuff directory -- quick and dirty UDP networking
+
+# Name of this component (the directory this file is stored in)
+COMP = test
+
+# Source files for this component
+C_FILES = testhelper.c test_bigargs.c test_schedule.c test_preempt.c \
+	test_recursion.c test_semaphore.c test_semaphore2.c test_semaphore3.c \
+	test_semaphore4.c test_semaphore5.c test_addargs.c test_libStdio.c
+
+# Add the files to the compile source path
+DIR = ${TOPDIR}/${COMP}
+COMP_SRC += ${S_FILES:%=${DIR}/%} ${C_FILES:%=${DIR}/%}
